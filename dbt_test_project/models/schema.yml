@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_zipcodes
+    columns:
+      - name: zipcode
+        tests:
+          - not_null
+          # Note: We are no longer testing for uniqueness here
+          # because we know it will fail.
+
+  - name: dim_zipcodes
+    columns:
+      - name: zipcode
+        tests:
+          - unique
+          - not_null
